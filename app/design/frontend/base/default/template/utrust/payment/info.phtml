@@ -1,0 +1,6 @@
+<p><?php echo $this->escapeHtml($this->getMethod()->getTitle()) ?></p>
+
+<?php if($this->getInfo()->getPayment() && $this->getInfo()->getPayment()->getUtrustPaymentId()): ?>
+<p>ID da Transação: <strong><?php echo $this->getInfo()->getUtrustPaymentId() ?></strong></p>
+<?php endif; ?>
+
