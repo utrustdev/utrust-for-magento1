@@ -1,0 +1,7 @@
+<p><?php echo $this->escapeHtml($this->getMethod()->getTitle()) ?></p>
+<?php if ($this->getInfo()->getUtrustPaymentId()): ?>
+<p>Utrust Order UUID: <strong><?php echo $this->getInfo()->getUtrustPaymentId() ?></strong></p>
+<?php endif;?>
+
+
+

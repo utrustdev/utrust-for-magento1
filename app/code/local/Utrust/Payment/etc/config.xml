@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Utrust_Payment>
+      <version>0.1.0</version>
+    </Utrust_Payment>
+  </modules>
+ 
+  <global>
+    <fieldsets>
+      <sales_convert_quote_payment>
+        <utrust_payment_id>
+          <to_order_payment>*</to_order_payment>
+        </utrust_payment_id>
+      </sales_convert_quote_payment>
+    </fieldsets>
+     
+    <helpers>
+      <utrust_payment>
+        <class>Utrust_Payment_Helper</class>
+      </utrust_payment>
+    </helpers>
+ 
+    <blocks>
+      <utrust_payment>
+        <class>Utrust_Payment_Block</class>
+      </utrust_payment>
+    </blocks>
+         
+    <models>
+      <utrust_payment>
+        <class>Utrust_Payment_Model</class>
+      </utrust_payment>
+    </models>
+ 
+    <resources>
+      <utrust_payment_setup>
+        <setup>
+          <module>Utrust_Payment</module>
+        </setup>
+      </utrust_payment_setup>
+    </resources>
+  </global>
+ 
+  <default>
+    <payment>
+      <utrust>
+        <active>0</active>
+        <model>utrust_payment/checkout</model>
+        <order_status>pending</order_status>
+        <sandbox>1</sandbox>
+        <title>Utrust</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </utrust>
+    </payment>
+  </default>
+   
+  <frontend>
+    <routers>
+      <utrust_payment>
+        <use>standard</use>
+        <args>
+          <module>Utrust_Payment</module>
+          <frontName>utrust</frontName>
+        </args>
+      </utrust_payment>
+    </routers>
+    <translate>
+        <modules>
+            <Utrust_Payment>
+                <files>
+                    <default>Utrust_Payment.csv</default>
+                </files>
+            </Utrust_Payment>
+        </modules>
+    </translate>
+  </frontend>
+</config>
