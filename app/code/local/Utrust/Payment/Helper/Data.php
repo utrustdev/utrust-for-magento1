@@ -31,7 +31,9 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
                             'currency' => $order->getBaseCurrencyCode(),
                             'details' => array(
                                 'subtotal' => $order->getBaseSubtotal(),
-                                'handling_fee' => $order->getShippingAddress()->getBaseShippingInclTax(),
+                                'tax' => $order->getBaseTaxAmount(),
+                                'shipping' => $order->getBaseShippingAmount(),
+                                'discount' => $order->getBaseDiscountAmount(),
                             ),
                         ),
                         'return_urls' => array(
