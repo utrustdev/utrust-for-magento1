@@ -5,28 +5,54 @@
       <groups>
         <utrust translate="label" module="utrust_payment">
           <label>Utrust</label>
+          <comment><![CDATA[
+            <table>
+              <td style="display: inline-block; vertical-align: middle;">
+                <a href="https://utrust.com">
+                    <img src="https://assets.utrust.com/logo-kit/png/logo/no-background/business-blue/logo-business-color-no-bg@2x.png" alt="Utrust" />
+                  </a>
+                </td>
+                <td style="display: inline; vertical-align: middle;">
+                  Accept crypto payments, easily.
+                </td>
+              </table>
+          ]]></comment>
           <sort_order>1000</sort_order>
           <show_in_default>1</show_in_default>
           <show_in_website>1</show_in_website>
           <show_in_store>0</show_in_store>
           <fields>
-            <title translate="label">
-              <label>Title</label>
-              <frontend_type>text</frontend_type>
+            <active translate="label">
+              <label>Enabled</label>
+              <comment><![CDATA[
+                You need an Utrust Merchant account to start accepting crypto payments on your Magento store.</br>
+                Please signup on 
+                <a href="https://merchants.sandbox-utrust.com" target="_blank">Test</a> 
+                and/or 
+                <a href="https://merchants.utrust.com" target="_blank">Production</a> 
+                environment.
+              ]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>0</show_in_store>
               <sort_order>1</sort_order>
-            </title>
-            <active translate="label">
-              <label>Enabled</label>
+            </active>
+            <sandbox translate="label">
+              <label>Test mode</label>
+              <comment><![CDATA[
+                Select <b>Yes</b> for testing (Sandbox), <b>No</b> when you are ready to go live (Production).
+              ]]>
+              </comment>
               <frontend_type>select</frontend_type>
               <source_model>adminhtml/system_config_source_yesno</source_model>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>0</show_in_store>
               <sort_order>2</sort_order>
-            </active>
+            </sandbox>
             <api_key translate="label">
               <label>API Key</label>
               <frontend_type>text</frontend_type>
@@ -37,12 +63,31 @@
             </api_key>
             <webhook_secret translate="label">
               <label>Webhook Secret</label>
-              <frontend_type>text</frontend_type>
+              <frontend_type>password</frontend_type>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>0</show_in_store>
               <sort_order>4</sort_order>
             </webhook_secret>
+            <title translate="label">
+              <label>Title</label>
+              <comment><![CDATA[Text displayed to the customer on the Checkout.]]></comment>
+              <frontend_type>text</frontend_type>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <sort_order>5</sort_order>
+            </title>
+            <instructions translate="label">
+              <label>Instructions</label>
+              <comment><![CDATA[Text displayed to the customer on the Checkout.]]></comment>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <sort_order>6</sort_order>
+            </instructions>
             <order_status translate="label">
               <label>New order status</label>
               <frontend_type>select</frontend_type>
@@ -50,7 +95,7 @@
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>0</show_in_store>
-              <sort_order>5</sort_order>
+              <sort_order>7</sort_order>
             </order_status>
             <allowspecific translate="label">
               <label>Payment from applicable countries</label>
@@ -59,7 +104,7 @@
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
-              <sort_order>6</sort_order>
+              <sort_order>8</sort_order>
             </allowspecific>
             <specificcountry translate="label">
               <label>Payment from Specific countries</label>
@@ -68,25 +113,8 @@
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
-              <sort_order>7</sort_order>
+              <sort_order>9</sort_order>
             </specificcountry>
-            <sandbox translate="label">
-              <label>Sandbox</label>
-              <frontend_type>select</frontend_type>
-              <source_model>adminhtml/system_config_source_yesno</source_model>
-              <show_in_default>1</show_in_default>
-              <show_in_website>1</show_in_website>
-              <show_in_store>0</show_in_store>
-              <sort_order>8</sort_order>
-            </sandbox>
-            <instructions translate="label">
-                <label>Instructions</label>
-                <frontend_type>textarea</frontend_type>
-                <sort_order>10</sort_order>
-                <show_in_default>1</show_in_default>
-                <show_in_website>1</show_in_website>
-                <show_in_store>1</show_in_store>
-            </instructions>
           </fields>
         </utrust>
       </groups>
