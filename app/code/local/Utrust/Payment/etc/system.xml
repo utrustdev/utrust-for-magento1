@@ -29,7 +29,7 @@
                 Please signup on 
                 <a href="https://merchants.sandbox-utrust.com" target="_blank">Test</a> 
                 and/or 
-                <a href="https://merchants.utrust.com" target="_blank">Production</a> 
+                <a href="https://merchants.utrust.com" target="_blank">Live</a> 
                 environment.
               ]]>
               </comment>
@@ -53,22 +53,50 @@
               <show_in_store>0</show_in_store>
               <sort_order>2</sort_order>
             </sandbox>
-            <api_key translate="label">
-              <label>API Key</label>
+            <live_api_key translate="label">
+              <label>Live API Key</label>
               <frontend_type>text</frontend_type>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>0</show_in_store>
               <sort_order>3</sort_order>
-            </api_key>
-            <webhook_secret translate="label">
-              <label>Webhook Secret</label>
+              <depends>
+                <sandbox>0</sandbox>
+              </depends>
+            </live_api_key>
+            <live_webhooks_secret translate="label">
+              <label>Live Webhooks Secret</label>
               <frontend_type>password</frontend_type>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>0</show_in_store>
               <sort_order>4</sort_order>
-            </webhook_secret>
+              <depends>
+                <sandbox>0</sandbox>
+              </depends>
+            </live_webhooks_secret>
+            <test_api_key translate="label">
+              <label>Test API Key</label>
+              <frontend_type>text</frontend_type>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <sort_order>3</sort_order>
+              <depends>
+                <sandbox>1</sandbox>
+              </depends>
+            </test_api_key>
+            <test_webhooks_secret translate="label">
+              <label>Test Webhooks Secret</label>
+              <frontend_type>password</frontend_type>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <sort_order>4</sort_order>
+              <depends>
+                <sandbox>1</sandbox>
+              </depends>
+            </test_webhooks_secret>
             <title translate="label">
               <label>Title</label>
               <comment><![CDATA[Text displayed to the customer on the Checkout.]]></comment>

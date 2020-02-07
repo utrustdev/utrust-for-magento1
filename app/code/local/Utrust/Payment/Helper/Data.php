@@ -62,6 +62,40 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
 
     /**
      *
+     * @return boolean
+     */
+    public function isSandbox()
+    {
+        $store = Mage::app()->getStore();
+        $sandbox = Mage::getStoreConfig('payment/utrust/sandbox', $store);
+
+        return ($sandbox) ? true : false;
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getApiKey()
+    {
+        $prefix = ($this->isSandbox()) ? 'test' : 'live';
+
+        return Mage::getStoreConfig('payment/utrust/' . $prefix . '_api_key');
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getWebhooksSecret()
+    {
+        $prefix = ($this->isSandbox()) ? 'test' : 'live';
+
+        return Mage::getStoreConfig('payment/utrust/' . $prefix . '_webhooks_secret');
+    }
+
+    /**
+     *
      * @param array $payload
      * @return string
      */
@@ -71,7 +105,9 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
         $payload = $this->_array_flatten($payload);
         ksort($payload);
         $msg = implode("", array_map(function ($v, $k) {return $k . $v;}, $payload, array_keys($payload)));
-        $secret = Mage::getStoreConfig('payment/utrust/webhook_secret');
+
+        $secret = $this->getWebhooksSecret();
+
         $signed_message = hash_hmac("sha256", $msg, $secret);
         return $signed_message;
     }

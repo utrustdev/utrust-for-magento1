@@ -7,13 +7,13 @@ class Utrust_Payment_Model_Api
 
     protected $apiUrl;
     protected $apiKey;
+    protected $helper;
 
     public function __construct()
     {
-        $store = Mage::app()->getStore();
-        $sandbox = Mage::getStoreConfig('payment/utrust/sandbox', $store);
-        $this->apiUrl = $sandbox ? self::API_SANDBOX_URL : self::API_PRODUCTION_URL;
-        $this->apiKey = Mage::getStoreConfig('payment/utrust/api_key', $store);
+        $this->helper = Mage::helper('utrust_payment');
+        $this->apiUrl = ($this->helper->isSandbox()) ? self::API_SANDBOX_URL : self::API_PRODUCTION_URL;
+        $this->apiKey = $this->helper->getApiKey();
     }
 
     /**
@@ -23,11 +23,11 @@ class Utrust_Payment_Model_Api
      */
     public function pay($order)
     {
-        $orderData = Mage::helper("utrust_payment")->getOrderData($order);
+        $orderData = $this->helper->getOrderData($order);
         $data_string = json_encode($orderData);
-        $authorization = "Authorization: Bearer " . $this->apiKey;
+        $authorization = 'Authorization: Bearer ' . $this->apiKey;
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->apiUrl . "/stores/orders");
+        curl_setopt($ch, CURLOPT_URL, $this->apiUrl . '/stores/orders');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
@@ -39,4 +39,5 @@ class Utrust_Payment_Model_Api
         curl_close($ch);
         return json_decode($response, true);
     }
+
 }
