@@ -126,7 +126,7 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
     }
 
     /**
-     * @return Mage_Core_Model_Config_Element
+     * @return array
      */
     public function getRestictedCountries()
     {
