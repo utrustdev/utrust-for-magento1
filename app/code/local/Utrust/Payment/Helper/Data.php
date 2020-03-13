@@ -135,4 +135,21 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
         return !empty($restictedCountriesList) ? explode(',', $restictedCountriesList) : [];
     }
 
+    /**
+     * @param null $storeId
+     *
+     * @return array
+     */
+    public function getAvailableCurrencies($storeId = null)
+    {
+        if (null === $storeId) {
+            $storeId = Mage::app()->getStore()->getId();
+        }
+
+        $path = 'payment/utrust/currency';
+        $currencies = Mage::getStoreConfig($path, $storeId);
+
+        return !empty($currencies) ? explode(',', $currencies) : [];
+    }
+
 }
