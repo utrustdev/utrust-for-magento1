@@ -125,4 +125,14 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
         return $result;
     }
 
+    /**
+     * @return array
+     */
+    public function getRestictedCountries()
+    {
+        $restictedCountriesList  =  Mage::getConfig()->getNode('default/restricted_country_codes');
+
+        return !empty($restictedCountriesList) ? explode(',', $restictedCountriesList) : [];
+    }
+
 }
