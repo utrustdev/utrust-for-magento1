@@ -15,8 +15,14 @@ class Utrust_Payment_Block_Form extends Mage_Payment_Block_Form
      */
     protected function _construct()
     {
-        parent::_construct();
-        $this->setTemplate('utrust/payment/form.phtml');
+        $paymentTitle = Mage::helper("utrust_payment")->getMethodTitle();
+        $mark = Mage::getConfig()->getBlockClassName('core/template');
+        $mark = new $mark;
+        $mark->setTemplate('utrust/payment/form.phtml');
+        $this->setTemplate('utrust/payment/instructions.phtml')
+            ->setMethodTitle($paymentTitle)
+            ->setMethodLabelAfterHtml($mark->toHtml());
+        return parent::_construct();
     }
 
     /**
