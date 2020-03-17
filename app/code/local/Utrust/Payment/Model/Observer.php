@@ -10,6 +10,7 @@ class Utrust_Payment_Model_Observer
         if ('utrust' !== $methodInstance->getCode()) {
             return;
         }
+
         $quote   = $event->getQuote();
         $result = $event->getResult();
 

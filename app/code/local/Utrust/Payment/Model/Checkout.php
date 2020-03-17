@@ -8,7 +8,7 @@ class Utrust_Payment_Model_Checkout extends Mage_Payment_Model_Method_Abstract
      
     protected $_canUseInternal = false;
     protected $_canUseForMultishipping = false;
-	
+    
     protected $_formBlockType = 'utrust_payment/form';
     protected $_infoBlockType = 'utrust_payment/info';
     
@@ -24,15 +24,18 @@ class Utrust_Payment_Model_Checkout extends Mage_Payment_Model_Method_Abstract
         $isActive = (bool)(int)$this->getConfigData('active', $quote ? $quote->getStoreId() : null);
         $checkResult->isAvailable = $isActive;
         $checkResult->isDeniedInConfig = !$isActive; // for future use in observers
-        Mage::dispatchEvent('payment_method_is_active', array(
+        Mage::dispatchEvent(
+            'payment_method_is_active', array(
             'result'          => $checkResult,
             'method_instance' => $this,
             'quote'           => $quote,
-        ));
+            )
+        );
 
         if ($checkResult->isAvailable && $quote) {
             $checkResult->isAvailable = $this->isApplicableToQuote($quote, self::CHECK_RECURRING_PROFILES);
         }
+
         return $checkResult->isAvailable;
     }
     

@@ -1,6 +1,7 @@
 <?php
 
-class Utrust_Payment_PaymentController extends Mage_Core_Controller_Front_Action {
+class Utrust_Payment_PaymentController extends Mage_Core_Controller_Front_Action
+{
 
     public function redirectAction() 
     {
@@ -21,6 +22,7 @@ class Utrust_Payment_PaymentController extends Mage_Core_Controller_Front_Action
                     foreach($result["errors"] as $error){
                         Mage::log($error['detail'], null, 'utrust.log');
                     }
+
                     $this->throwErrorAndRedirect();
                 }
             }
@@ -33,7 +35,8 @@ class Utrust_Payment_PaymentController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function throwErrorAndRedirect() {
+    public function throwErrorAndRedirect()
+    {
         Mage::getSingleton('core/session')->addError(__("Your payment didn't go through. Please try a different payment method or try again later."));
         Mage_Core_Controller_Varien_Action::_redirect('utrust/payment/cancel');
     }
@@ -58,10 +61,10 @@ class Utrust_Payment_PaymentController extends Mage_Core_Controller_Front_Action
             $cart = Mage::getSingleton('checkout/cart');
             if ($order->getId()) {
                 $session->getQuote()->setIsActive(false)->save();
-	        $session->clear();
+            $session->clear();
                 $order->cancel()->setState(Mage_Sales_Model_Order::STATE_CANCELED, true, 'Gateway has canceled the payment.')->save();
                 $items = $order->getItemsCollection();
-        	foreach ($items as $item) {
+            foreach ($items as $item) {
                     try {
                         $cart->addOrderItem($item);
                     } catch (Mage_Core_Exception $e) {
@@ -69,10 +72,12 @@ class Utrust_Payment_PaymentController extends Mage_Core_Controller_Front_Action
                         Mage::logException($e);
                         continue;
                     }
-                }
+            }
+
                 $cart->save();
             }
         }
+
         $this->_redirect('checkout/cart');
     }
     
@@ -96,6 +101,7 @@ class Utrust_Payment_PaymentController extends Mage_Core_Controller_Front_Action
                                 ->addObject($invoice->getOrder());
                             $transaction->save();
                         }
+
                         $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true);
                         $msg = __('Utrust Callback: ').$payload["event_type"]."<br/>".__("Amount: ").$payload["resource"]["currency"]." ".$payload["resource"]["amount"];
                         $history = $order->addStatusHistoryComment($msg, false);
