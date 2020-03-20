@@ -1,6 +1,6 @@
 <?php
 
-class Utrust_Payment_Block_Info extends Mage_Payment_Block_Info 
+class Utrust_Payment_Block_Info extends Mage_Payment_Block_Info
 {
 
     protected function _construct()
@@ -15,6 +15,7 @@ class Utrust_Payment_Block_Info extends Mage_Payment_Block_Info
         if (!($info instanceof Mage_Payment_Model_Info)) {
             Mage::throwException($this->__('Can not retrieve payment info model object.'));
         }
+
         return $info;
     }
 

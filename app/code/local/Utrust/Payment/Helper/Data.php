@@ -20,6 +20,7 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
                 "quantity" => (int) $item["qty_ordered"],
             );
         }
+
         $data = array(
             'data' => array(
                 'type' => 'orders',
@@ -104,7 +105,13 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
         unset($payload["signature"]);
         $payload = $this->_array_flatten($payload);
         ksort($payload);
-        $msg = implode("", array_map(function ($v, $k) {return $k . $v;}, $payload, array_keys($payload)));
+        $msg = implode(
+            "", array_map(
+                function ($v, $k) {
+                    return $k . $v;
+                }, $payload, array_keys($payload)
+            )
+        );
 
         $secret = $this->getWebhooksSecret();
 
@@ -122,7 +129,35 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
                 $result[$parentKey . $key] = $val;
             }
         }
+
         return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRestictedCountries()
+    {
+        $restictedCountriesList  =  Mage::getConfig()->getNode('default/restricted_country_codes');
+
+        return !empty($restictedCountriesList) ? explode(',', $restictedCountriesList) : array();
+    }
+
+    /**
+     * @param null $storeId
+     *
+     * @return array
+     */
+    public function getAvailableCurrencies($storeId = null)
+    {
+        if (null === $storeId) {
+            $storeId = Mage::app()->getStore()->getId();
+        }
+
+        $path = 'payment/utrust/currency';
+        $currencies = Mage::getStoreConfig($path, $storeId);
+
+        return !empty($currencies) ? explode(',', $currencies) : array();
     }
 
 }
