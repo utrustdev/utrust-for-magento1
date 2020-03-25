@@ -2,7 +2,6 @@
 
 class Utrust_Payment_Block_Form extends Mage_Payment_Block_Form
 {
-
     /**
      * Instructions text
      *
@@ -15,7 +14,8 @@ class Utrust_Payment_Block_Form extends Mage_Payment_Block_Form
      */
     protected function _construct()
     {
-        $this->setTemplate('utrust/payment/form.phtml')->setMethodLabelAfterHtml($this->getImage());
+        $this->setTemplate('utrust/payment/form.phtml');
+        $this->setMethodLabelAfterHtml($this->getImage());
         return parent::_construct();
     }
 
@@ -26,7 +26,7 @@ class Utrust_Payment_Block_Form extends Mage_Payment_Block_Form
      */
     public function getInstructions()
     {
-        if (is_null($this->_instructions)) {
+        if (null === $this->_instructions) {
             $this->_instructions = $this->getMethod()->getInstructions();
         }
 
@@ -36,10 +36,9 @@ class Utrust_Payment_Block_Form extends Mage_Payment_Block_Form
     /**
      * @return string
      */
-    private function getImage()
+    protected function getImage()
     {
-        $html = "<img src='".$this->getSkinUrl('images/utrust-logo.png')."'
-        style='float:left; max-width: 100px; margin-right: 10px;'/>";
-        return $html;
+        return "<img src='" . $this->getSkinUrl('images/utrust-logo.png') .
+            "'style='float: left; max-width: 100px; margin-right: 10px;'/>";
     }
 }
