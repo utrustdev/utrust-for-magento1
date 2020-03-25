@@ -159,5 +159,4 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
 
         return !empty($currencies) ? explode(',', $currencies) : array();
     }
-
 }
