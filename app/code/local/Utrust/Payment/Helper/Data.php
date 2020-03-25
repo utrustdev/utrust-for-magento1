@@ -20,7 +20,6 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
                 "quantity" => (int) $item["qty_ordered"],
             );
         }
-
         $data = array(
             'data' => array(
                 'type' => 'orders',
@@ -105,13 +104,7 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
         unset($payload["signature"]);
         $payload = $this->_array_flatten($payload);
         ksort($payload);
-        $msg = implode(
-            "", array_map(
-                function ($v, $k) {
-                    return $k . $v;
-                }, $payload, array_keys($payload)
-            )
-        );
+        $msg = implode("", array_map(function ($v, $k) {return $k . $v;}, $payload, array_keys($payload)));
 
         $secret = $this->getWebhooksSecret();
 
