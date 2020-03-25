@@ -159,8 +159,7 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
     public function getMethodTitle($storeId = null)
     {
         $path = 'payment/utrust/title';
-        $paymentTitle = Mage::getStoreConfig($path, $storeId);
-        return $paymentTitle;
+        return Mage::getStoreConfig($path, $storeId);
     }
 
 }
