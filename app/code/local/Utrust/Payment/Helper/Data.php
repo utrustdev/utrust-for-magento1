@@ -102,22 +102,30 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
     public function getPayloadSignature($payload)
     {
         unset($payload["signature"]);
-        $payload = $this->_array_flatten($payload);
+        $payload = $this->_arrayFlatten($payload);
         ksort($payload);
-        $msg = implode("", array_map(function ($v, $k) {return $k . $v;}, $payload, array_keys($payload)));
+        $msg = implode(
+            "",
+            array_map(
+                function ($v, $k) {
+                    return $k . $v;
+                },
+                $payload,
+                array_keys($payload)
+            )
+        );
 
         $secret = $this->getWebhooksSecret();
 
-        $signed_message = hash_hmac("sha256", $msg, $secret);
-        return $signed_message;
+        return hash_hmac("sha256", $msg, $secret);
     }
 
-    protected function _array_flatten(array $array, $parentKey = '')
+    protected function _arrayFlatten(array $array, $parentKey = '')
     {
         $result = array();
         foreach ($array as $key => $val) {
             if (is_array($val)) {
-                $result = array_merge($result, $this->_array_flatten($val, $key));
+                $result = array_merge($result, $this->_arrayFlatten($val, $key));
             } else {
                 $result[$parentKey . $key] = $val;
             }
@@ -147,8 +155,7 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
             $storeId = Mage::app()->getStore()->getId();
         }
 
-        $path = 'payment/utrust/currency';
-        $currencies = Mage::getStoreConfig($path, $storeId);
+        $currencies = Mage::getStoreConfig('payment/utrust/currency', $storeId);
 
         return !empty($currencies) ? explode(',', $currencies) : array();
     }
