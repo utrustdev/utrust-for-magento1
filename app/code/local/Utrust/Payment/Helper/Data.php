@@ -152,14 +152,4 @@ class Utrust_Payment_Helper_Data extends Mage_Core_Helper_Data
         return !empty($currencies) ? explode(',', $currencies) : [];
     }
 
-    /**
-     * @param null $storeId
-     * @return string
-     */
-    public function getMethodTitle($storeId = null)
-    {
-        $path = 'payment/utrust/title';
-        return Mage::getStoreConfig($path, $storeId);
-    }
-
 }
