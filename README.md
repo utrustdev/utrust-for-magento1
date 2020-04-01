@@ -16,7 +16,11 @@ Find out more about Utrust at [utrust.com](https://utrust.com).
 
 ## Install and Update
 
-### Installing
+### Install automatically
+
+Go to the [Utrust Payment extension page](https://marketplace.magento.com/utrust-utrust-payment.html) on Magento's marketplace and follow the usual process of [adding an extension to your store](https://docs.magento.com/m2/ee/user_guide/magento/magento-marketplace.html).
+
+### Install manually
 
 1. Download our latest release zip file on the [releases page](https://github.com/utrustdev/utrust-for-magento1/releases).
 2. Go to your Magento admin dashboard (it should be something like https://<your-store.com>/admin).
@@ -25,7 +29,7 @@ Find out more about Utrust at [utrust.com](https://utrust.com).
 5. Go to _Direct package file upload_ and upload the zip
 6. A success message should appear on the logs on the bottom.
 
-### Updating
+### Updating manually
 
 You can always check our [releases page](https://github.com/utrustdev/utrust-for-magento1/releases) for a new version. You can update by following the same instructions as installing.
 
