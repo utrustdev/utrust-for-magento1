@@ -53,7 +53,7 @@
         <instructions>You will be redirected to the Utrust payment widget.</instructions>
         <allowspecific>0</allowspecific>
         <payment_action>sale</payment_action>
-        <currency>EUR,USD,GPB</currency>
+        <currency>EUR,USD,GBP</currency>
       </utrust>
     </payment>
     <restricted_country_codes>AX,AQ,AW,BS,BW,BV,IO,VG,CF,CX,CC,CK,CU,CW,KP,ET,FK,GF,PF,TF,GH,GL,GP,GU,HM,IR,XK,LY,MQ,YT,NC,NU,NF,MP,PK,PN,RE,BL,PM,RS,SO,LK,SD,SJ,SY,TK,TT,TN,UM,VI,VE,WF,EH,YE,CI</restricted_country_codes>
