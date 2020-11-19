@@ -4,7 +4,7 @@
     <Utrust_Payment>
       <active>true</active>
       <codePool>local</codePool>
-      <version>1.0.1</version>
+      <version>1.1.0</version>
     </Utrust_Payment>
   </modules>
 </config>
