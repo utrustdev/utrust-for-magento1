@@ -1,26 +1,23 @@
-![Utrust integrations](https://user-images.githubusercontent.com/1558992/67495646-1e356b00-f673-11e9-8854-1beac877c586.png)
+![xMmoney integrations](https://uploads.linear.app/3bfdd976-78e7-4ce9-bc87-225fc573d69e/a875ff0d-b8ff-4c3d-85ef-bef2f50f849b/63be8a1d-1dc3-4c5b-a3e5-47710601a797)
 
-# Utrust for Magento 1.9
+# xMoney Crypto for Magento 1.9
 
 **Demo Store:** https://magento1.store.utrust.com/
 
-Accept Bitcoin, Ethereum, Utrust Token and other cryptocurrencies directly on your store with the Utrust payment gateway for Magento.
-Utrust is cryptocurrency agnostic and provides fiat settlements.
-The Utrust plugin extends Magento allowing you to take cryptocurrency payments directly on your store via the Utrust API.
-Find out more about Utrust at [utrust.com](https://utrust.com).
+Accept Bitcoin, Ethereum, eGLD, UTK Token, and other juicy cryptocurrencies directly on your online store and get settled in the currency of your choice.
+
+With xMoney Crypto Pay, grow your business by allowing your customers to enjoy a vast portfolio of fiat & crypto currencies when purchasing goods and services, with a zero-fee exchange rate.
+
+Find out more at [xMoney.com/crypto-pay](https://www.xmoney.com/crypto-pay)
+
+xMoney is the world's digital payments network for all things money. Crypto-enabled & Fiat-ready, with a suite of solutions for anyone, anywhere. Powered by [MultiversX](https://multiversx.com/).
 
 ## Requirements
 
-- Utrust Merchant account
+- xMoney Crypto Merchant account
 - Online store in Magento 1.9.x
 
-## Install and Update
-
-### Install automatically
-
-Go to the [Utrust Payment extension page](https://marketplace.magento.com/utrust-utrust-payment.html) on Magento's marketplace and follow the usual process of [adding an extension to your store](https://docs.magento.com/m2/ee/user_guide/magento/magento-marketplace.html).
-
-### Install manually
+## Install Manually and Update
 
 1. Download our latest release zip file on the [releases page](https://github.com/utrustdev/utrust-for-magento1/releases).
 2. Go to your Magento admin dashboard (it should be something like https://<your-store.com>/admin).
@@ -35,9 +32,9 @@ You can always check our [releases page](https://github.com/utrustdev/utrust-for
 
 ## Setup
 
-### On the Utrust side
+### On the xMoney Crypto side
 
-1. Go to [Utrust merchant dashboard](https://merchants.utrust.com).
+1. Go to [xMoney Crypto merchant dashboard](https://merchants.crypto.xmoney.com/).
 2. Log in or sign up if you didn't yet.
 3. On the left sidebar choose _Integrations_.
 4. Select _Magento 1_ and click the button _Generate Credentials_.
@@ -61,22 +58,22 @@ You can always check our [releases page](https://github.com/utrustdev/utrust-for
 
 :sparkles: These are the features already implemented and planned for the Utrust for Magento 1 plugin:
 
-- [x] Creates Order and redirects to Utrust payment widget
+- [x] Creates Order and redirects to xMoney Crypto payment widget
 - [x] Receives and handles webhook payment received
 - [x] Receives and handles webhook payment cancelled
-- [ ] Starts automatic refund on Utrust when refund initiated in Magento
+- [ ] Starts automatic refund on xMoney Crypto when refund initiated in Magento
 
 ## Support
 
-Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-magento1/issues/new) if you need any help with the Utrust for Magento 1 plugin.
+Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-magento1/issues/new) if you need any help with the xMoney Crypto for Magento 1 plugin.
 
-If you're having specific problems with your account, then please contact support@utrust.com.
+If you're having specific problems with your account, then please contact [support@xmoney.com](https://mailto:support@xmoney.com/).
 
 In both cases, our team will be happy to help :purple_heart:.
 
 ## Contribute
 
-This plugin was initially written by a third-party contractor (Moisés Sequeira from [CloudInfo](https://cloudinfo.pt/)), and is now maintained by the Utrust development team.
+This plugin was initially written by a third-party contractor (Moisés Sequeira from [CloudInfo](https://cloudinfo.pt/)), and is now maintained by the xMoney Crypto development team.
 
 We have now opened it to the world so that the community using this plugin may have the chance of shaping its development.
 
@@ -102,6 +99,6 @@ To publish a new version, simply follow [these instructions](https://github.com/
 
 ## License
 
-The Utrust for Magento 1 plugin is maintained with :purple_heart: by the Utrust development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/magento1/blob/master/LICENSE) for further details.
+The xMoney Crypto for Magento 1 plugin is maintained with :purple_heart: by the xMoney development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/magento1/blob/master/LICENSE) for further details.
 
 &copy; Utrust 2019
