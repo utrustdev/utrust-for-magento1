@@ -1,4 +1,4 @@
-![xMmoney integrations](https://uploads.linear.app/3bfdd976-78e7-4ce9-bc87-225fc573d69e/a875ff0d-b8ff-4c3d-85ef-bef2f50f849b/63be8a1d-1dc3-4c5b-a3e5-47710601a797)
+![xMmoney Crypto integrations](https://uploads.linear.app/3bfdd976-78e7-4ce9-bc87-225fc573d69e/a875ff0d-b8ff-4c3d-85ef-bef2f50f849b/63be8a1d-1dc3-4c5b-a3e5-47710601a797)
 
 # xMoney Crypto for Magento 1.9
 
