@@ -38,7 +38,7 @@ class Utrust_Payment_Block_Form extends Mage_Payment_Block_Form
      */
     protected function getImage()
     {
-        return "<img src='" . $this->getSkinUrl('images/utrust-logo.png') .
+        return "<img src='" . $this->getSkinUrl('images/xmoney-logo.png') .
             "'style='float: left; max-width: 100px; margin-right: 10px;'/>";
     }
 }
